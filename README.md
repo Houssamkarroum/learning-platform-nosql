@@ -5,14 +5,23 @@ i have added the correct code to env.js also i adjust this function to acces to 
 # Projet de fin de module NoSQL
 
 # Choix Techniques 
-## 1. Configuration du MongoDB Client
-Nous avons utilisé la bibliothèque dotenv pour charger le fichier .env à partir d'un emplacement spécifique ../../.env :
-```javascript
-dotenv.config({ path: '../../.env' });
-```
+### 1. Connexion à MongoDB
+- **Utilisation du module `MongoClient`** pour se connecter à MongoDB via l'URI configurée dans `config`.
+- **Affichage des bases de données disponibles** pour confirmer que la connexion fonctionne.
+- **Gestion d'erreurs rudimentaire**.
+
+### 2. Connexion à Redis
+- **Utilisation du module `redis`** pour gérer la connexion.
+- Test via la récupération de toutes les clés présentes dans la base Redis.
+- **Fermeture explicite** avec `quit()` dans le bloc `finally`.
+- **Gestion d'erreurs** incluse
+
+### ajout de test pour les deux methods
+
+---
 ## 1. repond au question 
-file .env Done
-file env.js Done
+file db.js Done
+
 ### Pour le rendu, voici ce que j'attends :
 1. Un dépôt public sur Github avec un historique de commits clair :> Done
 2. Un README.md qui explique :
