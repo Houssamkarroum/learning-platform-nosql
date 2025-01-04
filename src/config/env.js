@@ -1,11 +1,14 @@
 // Question: Pourquoi est-il important de valider les variables d'environnement au démarrage ?
-// Réponse : 
+// Réponse : les variable d'environnement contient toujours des variables et des donnes sensible
+// et crucial (comme les URL, les Service externe comme AIP_key) et 
+// si ces variablles sont pas bien valide l'app risque de ne pas fonctionner.  
+
 // Question: Que se passe-t-il si une variable requise est manquante ?
-// Réponse : 
+// Réponse : l'application va pas fonctionner des fois et lancer des erreur, ou des comportement innattendu 
+// ainsi que pafois des resultas errone 
 
 const dotenv = require('dotenv');
-dotenv.config();
-
+dotenv.config({ path: '../../.env' });
 const requiredEnvVars = [
   'MONGODB_URI',
   'MONGODB_DB_NAME',
@@ -16,7 +19,19 @@ const requiredEnvVars = [
 function validateEnv() {
   // TODO: Implémenter la validation
   // Si une variable manque, lever une erreur explicative
+  requiredEnvVars.forEach((varName) => {
+    if (!process.env[varName]) {
+      console.log(`Checking environment variable: ${varName}`);
+      console.log(`Value: ${process.env[varName] || 'Not set'}`);
+      throw new Error(`Missing required environment variable: ${varName}`);
+    }
+  });
+  requiredEnvVars.forEach((varName) => {
+    console.log(process.env[varName]);
+  });
 }
+// test 
+validateEnv();
 
 module.exports = {
   mongodb: {
