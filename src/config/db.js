@@ -18,28 +18,20 @@ let mongoClient, redisClient, db;
 
 async function connectMongo() {
   // TODO: Implémenter la connexion MongoDB
-  console.log(config.mongodb.uri);
+
   mongoClient = new MongoClient(config.mongodb.uri);
   try {
     await mongoClient.connect();
     db = mongoClient.db(config.mongodb.dbName);
     console.log("Connected to MongoDB");
-
-    // databases to cnfirm that it's working
-    const databasesList = await mongoClient.db().admin().listDatabases();
-    console.log("Databases:", databasesList.databases);
   } catch (error) {
     console.log("not connected from bd.js");
   }
   // Gérer les erreurs et les retries     
 
 }
-// test
-async function init() {
-  await connectMongo();
-  connectRedis();
-}
-init();
+
+
 async function connectRedis() {
   // TODO: Implémenter la connexion Redis
   // Gérer les erreurs et les retries
@@ -48,8 +40,6 @@ async function connectRedis() {
     await redisClient.connect({
       host: config.redis, port: config.port
     });
-    const keys = await redisClient.keys('*');  // Returns all keys in Redis to test
-    console.log(keys);
     console.log("data base connected");
   } catch (error) {
     console.log("data base not connected");
@@ -60,10 +50,18 @@ async function connectRedis() {
 
 
 }
+function getdb() {
+  if ((!db)) {
+    throw new Error("mongodb not found not connected")
+  } else {
+    return db;
+  }
+}
 
 // Export des fonctions et clients
 module.exports = {
   connectMongo,
-  connectRedis
+  connectRedis,
+  getdb,
   // TODO: Exporter les clients et fonctions utiles
 };

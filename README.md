@@ -1,26 +1,30 @@
 ## KARROUM HOUSSAM ##
 #### Done
-i have added the correct code to env.js also i adjust this function to acces to .env variables
+i have added the correct code to mongoservice.js also i add a function to get the db and i removed all console display in the previous files db, env and .env
 
 # Projet de fin de module NoSQL
 
 # Choix Techniques 
-### 1. Connexion à MongoDB
-- **Utilisation du module `MongoClient`** pour se connecter à MongoDB via l'URI configurée dans `config`.
-- **Affichage des bases de données disponibles** pour confirmer que la connexion fonctionne.
-- **Gestion d'erreurs rudimentaire**.
+### 1. ajouter une function pour returner la base de donnee
+````javascript
+function getdb() {
+  if ((!db)) {
+    throw new Error("mongodb not found not connected")
+  } else {
+    return db;
+  }
+}
+````
 
-### 2. Connexion à Redis
-- **Utilisation du module `redis`** pour gérer la connexion.
-- Test via la récupération de toutes les clés présentes dans la base Redis.
-- **Fermeture explicite** avec `quit()` dans le bloc `finally`.
-- **Gestion d'erreurs** incluse
+### 2. crearer un fichier test.js just pour tester le servces avec un example
 
-### ajout de test pour les deux methods
+![code result in terminal](image.png)
+
+### ajout de test 
 
 ---
 ## 1. repond au question 
-file db.js Done
+file mongoservice.js Done
 
 ### Pour le rendu, voici ce que j'attends :
 1. Un dépôt public sur Github avec un historique de commits clair :> Done

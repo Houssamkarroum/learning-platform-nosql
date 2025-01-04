@@ -26,11 +26,8 @@ function validateEnv() {
       throw new Error(`Missing required environment variable: ${varName}`);
     }
   });
-  requiredEnvVars.forEach((varName) => {
-    console.log(process.env[varName]);
-  });
+
 }
-// test 
 validateEnv();
 
 module.exports = {
