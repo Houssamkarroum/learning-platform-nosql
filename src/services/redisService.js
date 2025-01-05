@@ -15,7 +15,7 @@ async function cacheData(key, data, ttl) {
   const redisClient = await redisdb.connectRedis();
   try {
     await redisClient.set(key, JSON.stringify(data), { EX: ttl });
-    console.log(`Data cached: ${key}`);
+
   } catch (error) {
     console.error("Error caching data:", error);
   }
