@@ -13,12 +13,18 @@
 
 ### **Choix Techniques**
 
-#### 1. **Ajout du retour du client Redis dans le fichier `db.js` dans `config`**  
+#### 1. **ajout des fonction au mongo service et redis service**  
    - **Status** : *Done*
+   - async function getCachedData(key) pour redisservice
+   - async function getCourseStats() 
+   - async function insertOne(collectionName, document) 
 
-#### 2. **Création d'un fichier `test.js` pour tester les services avec un exemple**  
-   - **Status** : *Done*  
-   - ![Code Result](image-1.png)
+#### 2. **implementer des fonctions dans coursecontroller**  
+   - getCourseStats
+   - getCourse
+   - createCourse
+
+
 
 #### 3. **Ajout de tests**  
    - **Status** : *Done*

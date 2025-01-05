@@ -13,9 +13,23 @@ async function findOneById(collection, id) {
   const collectionName = instance.collection(collection);
   return await collectionName.findOne({ _id: new ObjectId(id) });
 }
+async function insertOne(collectionName, document) {
+  const dbInstance = db.getdb();
+  const collection = dbInstance.collection(collectionName);
+  return await collection.insertOne(document);
+}
+
+async function getCourseStats() {
+  const dbInstance = db.getdb();
+  const collection = dbInstance.collection('courses');
+  return await collection.stats();
+}
+
 
 // Export des services
 module.exports = {
   // TODO: Exporter les fonctions utilitaires
-  findOneById
+  findOneById,
+  getCourseStats,
+  insertOne
 };

@@ -21,7 +21,14 @@ async function cacheData(key, data, ttl) {
   }
 }
 
+async function getCachedData(key) {
+  const client = db.getRedisClient();
+  const data = await client.get(key);
+  return data ? JSON.parse(data) : null;
+}
+
 module.exports = {
   // TODO: Exporter les fonctions utilitaires
-  cacheData
+  cacheData,
+  getCachedData
 };
