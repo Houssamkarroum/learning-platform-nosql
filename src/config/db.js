@@ -43,12 +43,8 @@ async function connectRedis() {
     console.log("data base connected");
   } catch (error) {
     console.log("data base not connected");
-  } finally {
-    // Make sure to close the Redis connection after using it
-    await redisClient.quit();
   }
-
-
+  return redisClient;
 }
 function getdb() {
   if ((!db)) {
