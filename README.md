@@ -11,6 +11,8 @@
 ### **1. Choix Techniques**  
 
 #### **Service Backend**  
+=> making sure api/ works after installing postman to test it and it working
+![alt text](image-5.png)
 - **Statut** : **Terminé**  
 - **Détails :**  
   - **Fichier `app.js` :**  

@@ -13,6 +13,7 @@ async function createCourse(req, res) {
   // Utiliser les services pour la logique réutilisable
   try {
     const course = req.body;
+    console.log(course);
     const result = await mongoService.insertOne('course', course);
     res.status(201).json(result);
   } catch (error) {

@@ -14,13 +14,14 @@ async function findOneById(collection, id) {
   return await collectionName.findOne({ _id: new ObjectId(id) });
 }
 async function insertOne(collectionName, document) {
-  const dbInstance = db.getdb();
+  const dbInstance = mongodb.getdb();
+  console.log("ana hna");
   const collection = dbInstance.collection(collectionName);
   return await collection.insertOne(document);
 }
 
 async function getCourseStats() {
-  const dbInstance = db.getdb();
+  const dbInstance = mongodb.getdb();
   const collection = dbInstance.collection('courses');
   return await collection.stats();
 }
