@@ -22,9 +22,19 @@ async function cacheData(key, data, ttl) {
 }
 
 async function getCachedData(key) {
-  const client = db.getRedisClient();
-  const data = await client.get(key);
-  return data ? JSON.parse(data) : null;
+  // get cash data implemenatation
+  const redisClient = await redisdb.connectRedis();
+  try {
+    const data = await redisClient.get(key);
+    if (data) {
+      return JSON.parse(data);
+    }
+    return null;
+  } catch (error) {
+    console.error("Error getting cached data:", error);
+    return null;
+  }
+
 }
 
 module.exports = {

@@ -1,66 +1,60 @@
 # **KARROUM HOUSSAM**  
 
-### **Statut du Projet**  
-- **Done**  
-  - Ajout du code correct dans `redisservice.js`.  
-  - Ajout d'une return a une fonction pour obtenir redis client.  
+## **Statut du Projet : Terminé**  
+- Ajout du code correct dans `redisservice.js`.  
+- Mise à jour de la fonction pour obtenir le client Redis.  
 
 ---
 
-## **Projet de Fin de Module NoSQL**  
+## **Projet de Fin de Module : NoSQL**  
+### projet termine => next step is clean code with console.log ...
+### **1. Choix Techniques**  
+
+#### **Service Backend**  
+- **Statut** : **Terminé**  
+- **Détails :**  
+  - **Fichier `app.js` :**  
+    - Code implémenté correctement, le serveur fonctionne. Les réponses aux questions seront ajoutées après.  
+    - ![Statut du serveur](image-4.png)  
+
+  - **Fichier `db.js` :**  
+    - Ajout des fonctions :  
+      - `closeMongo`  
+      - `closeRedis`  
+
+  - **Fichier `coursecontroller.js` :**  
+    - Correction des erreurs dans `coursecontroller`.  
+    - Ajout de logs pour identifier et résoudre les problèmes plus efficacement.  
+  - **Fichier `redisservice.js` :**  
+    - Ré-implémentation de `getCachedData` pour obtenir les bonnes données.  
+      - **Premier appel :** Les données proviennent de la base de données (non mises en cache).  
+        ![Première exécution](image-2.png)  
+      - **Deuxième appel :** Les données proviennent du cache.  
+        ![Deuxième exécution](image-3.png)  
+
+#### **Implémentation des fonctionnalités dans `coursecontroller`**  
+- `getCourseStats`  
+- `getCourse`  
+- `createCourse`  
 
 ---
 
-### **Choix Techniques**
-
-#### 1. **ajout des fonction au mongo service et redis service**  
-   - **Status** : *Done*
-   - async function getCachedData(key) pour redisservice
-   - async function getCourseStats() 
-   - async function insertOne(collectionName, document) 
-
-#### 2. **implementer des fonctions dans coursecontroller**  
-   - getCourseStats
-   - getCourse
-   - createCourse
-
-
-
-#### 3. **Ajout de tests**  
-   - **Status** : *Done*
+### **2. Ajout de Tests**  
+- **Statut : Terminé**  
 
 ---
 
-### **Réponses aux questions**  
+## **Réponses aux Questions Techniques**  
 
-#### 1. **Répondre aux questions dans le fichier `redisService.js`**  
-   - **Status** : *Done*
+### **Fichier `redisService.js`**  
+- Réponses incluses dans les commentaires et documentations associées.  
+- **Statut : Terminé**
+### **Fichier `tout les fichier sauf app`**  
+- Réponses incluses dans les commentaires et documentations associées.  
+- **Statut : Terminé**    
 
----
 
-## **Pour le rendu, voici ce que j'attends** :  
-
-1. **Un dépôt public sur Github avec un historique de commits clair**  
-   - **Status** : *Done*
-
-2. **Un fichier README.md qui explique :**  
-   - Comment installer et lancer le projet  
-   - La structure du projet  
-   - Les choix techniques faits  
-
----
-
-### **Conseils de réalisation :**
-
-1. Commencez par lire et comprendre la structure du projet.  
-2. Répondez aux questions dans le fichier README.  
-3. Implémentez progressivement les TODOs.  
-4. Testez chaque fonctionnalité au fur et à mesure.  
-5. Documentez vos choix et vos réflexions, en ajoutant des captures d'écran dans votre README.md.  
-
----
-
-### **Auteurs**  
+## **Auteur**  
 - **Houssam Karroum** - Développeur  
 
 --- 

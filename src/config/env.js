@@ -8,7 +8,13 @@
 // ainsi que pafois des resultas errone 
 
 const dotenv = require('dotenv');
-dotenv.config({ path: '../../.env' });
+
+const path = require('path');
+
+// Fix the path to .env file
+dotenv.config({ path: path.resolve(__dirname, '../../.env') });
+
+
 const requiredEnvVars = [
   'MONGODB_URI',
   'MONGODB_DB_NAME',
@@ -28,7 +34,6 @@ function validateEnv() {
   });
 
 }
-validateEnv();
 
 module.exports = {
   mongodb: {

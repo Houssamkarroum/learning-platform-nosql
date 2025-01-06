@@ -13,7 +13,7 @@ async function createCourse(req, res) {
   // Utiliser les services pour la logique réutilisable
   try {
     const course = req.body;
-    const result = await mongoService.insertOne('courses', course);
+    const result = await mongoService.insertOne('course', course);
     res.status(201).json(result);
   } catch (error) {
     res.status(500).json({ error: 'Failed to create course' });
@@ -24,8 +24,11 @@ async function getCourse(req, res) {
   try {
     const { id } = req.params;
     let course = await redisService.getCachedData(id);
+    console.log(course);
+    course ? console.log('from cache') : console.log('from db');
     if (!course) {
-      course = await mongoService.findOneById('courses', id);
+      course = await mongoService.findOneById('course', id);
+      console.log(course + 'from db');
       if (course) {
         await redisService.cacheData(id, course, 3600);
       }
@@ -33,6 +36,7 @@ async function getCourse(req, res) {
     res.status(200).json(course);
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch course' });
+    console.log(error);
   }
 }
 
