@@ -13,4 +13,6 @@ router.get('/stats', courseController.getCourseStats);
 router.get('/:id', courseController.getCourse);
 
 
+
+
 module.exports = router;
