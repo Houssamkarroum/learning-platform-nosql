@@ -17,7 +17,6 @@ async function startServer() {
     // TODO: Configurer les middlewares Express
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
-
     // TODO: Monter les routes
     app.use('/api', courseRoutes);
 

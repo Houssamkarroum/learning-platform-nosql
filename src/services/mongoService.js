@@ -20,17 +20,13 @@ async function insertOne(collectionName, document) {
   return await collection.insertOne(document);
 }
 
-async function getCourseStats() {
-  const dbInstance = mongodb.getdb();
-  const collection = dbInstance.collection('courses');
-  return await collection.stats();
-}
+
+
 
 
 // Export des services
 module.exports = {
   // TODO: Exporter les fonctions utilitaires
   findOneById,
-  getCourseStats,
   insertOne
 };

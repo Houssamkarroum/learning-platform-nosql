@@ -24,6 +24,9 @@ async function createCourse(req, res) {
 async function getCourse(req, res) {
   try {
     const { id } = req.params;
+    if (!ObjectId.isValid(id)) {
+      return res.status(400).json({ error: 'Invalid course ID' });
+    }
     let course = await redisService.getCachedData(id);
     console.log(course);
     course ? console.log('from cache') : console.log('from db');
@@ -41,13 +44,27 @@ async function getCourse(req, res) {
   }
 }
 
-// get course stats
+// get course stats like number of courses, average rating, etc.
 async function getCourseStats(req, res) {
   try {
-    const stats = await mongoService.getCourseStats();
-    res.status(200).json(stats);
+    const dbInstance = db.getdb();
+    const collection = dbInstance.collection('course');
+
+    // Get collection stats
+    const stats = await dbInstance.command({ collStats: 'course' });
+    // vous choisirez les statistiques qui vous intéress
+    // par exemple, le nombre de documents, la taille, etc.
+    // voila le code pour elle
+    // const count = stats.count;
+    // const size = stats.size;
+    //   const avgObjSize = stats.avgObjSize;
+    res.status(200).json({
+      stats
+
+    });
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch course stats' });
+    console.error(error);
   }
 }
 // Export des contrôleurs
