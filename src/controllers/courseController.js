@@ -14,7 +14,6 @@ async function createCourse(req, res) {
   // Utiliser les services pour la logique réutilisable
   try {
     const course = req.body;
-    console.log(course);
     const result = await mongoService.insertOne('course', course);
 
     res.status(201).json(result);
@@ -30,11 +29,10 @@ async function getCourse(req, res) {
       return res.status(400).json({ error: 'Invalid course ID' });
     }
     let course = await redisService.getCachedData(id);
-    console.log(course);
-    course ? console.log('from cache') : console.log('from db');
+
     if (!course) {
       course = await mongoService.findOneById('course', id);
-      console.log(course + 'from db');
+
       if (course) {
         await redisService.cacheData(id, course, 3600);
       }
@@ -42,7 +40,6 @@ async function getCourse(req, res) {
     res.status(200).json(course);
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch course' });
-    console.log(error);
   }
 }
 
@@ -67,7 +64,6 @@ async function getCourseStats(req, res) {
     });
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch course stats' });
-    console.error(error);
   }
 }
 // Export des contrôleurs
