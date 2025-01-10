@@ -1,7 +1,5 @@
 # **KARROUM HOUSSAM**
 
-# **KARROUM HOUSSAM**
-
 ## **Statut du Projet : Terminé**
 
 ## **Instructions pour Exécuter le Projet**
@@ -17,9 +15,8 @@
 
 ## Demo ##
 <video width="320" height="240" controls>
-  <source src="https://github.com/Houssamkarroum/learning-platform-nosql/blob/main/demo.mp4" type="video/mp4">
+  <source src="https://youtu.be/Ovq0e8nHYCQ?si=4OVo-NdXtLo71-aD" type="video/mp4">
 </video>
-
 ---
 
 ## **Projet de Fin de Module : NoSQL**
