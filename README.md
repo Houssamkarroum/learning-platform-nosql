@@ -16,8 +16,9 @@
    *Faites un clic droit sur index.html et choisissez "Open with Live Server" pour ouvrir l'interface utilisateur.*
 
 ## Demo ##
-<video controls src="demo.mp4" title="Demo"></video>
-<video controls src="demo1.mp4" title="Demo"></video>
+<video width="320" height="240" controls>
+  <source src="dem1.mp4" type="video/mp4">
+</video>
 
 ---
 
