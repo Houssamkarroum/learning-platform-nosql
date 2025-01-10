@@ -17,7 +17,7 @@
 
 ## Demo ##
 <video width="320" height="240" controls>
-  <source src="dem1.mp4" type="video/mp4">
+  <source src="https://github.com/Houssamkarroum/learning-platform-nosql/blob/main/demo.mp4" type="video/mp4">
 </video>
 
 ---
