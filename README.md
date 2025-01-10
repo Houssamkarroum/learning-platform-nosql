@@ -17,7 +17,6 @@
 <video width="320" height="240" controls>
   <source src="" type="video/mp4">
 </video>
-(https://youtu.be/Ovq0e8nHYCQ "demo in youtube")
 ---
 
 ## **Projet de Fin de Module : NoSQL**
